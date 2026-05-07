@@ -1,27 +1,46 @@
 {
   "expo": {
-    "name": "openpay-send-expo-demo-github",
-    "slug": "openpay-send-expo-demo-github",
+    "name": "OpenPay Send Demo",
+    "slug": "openpay-send-example",
     "version": "1.0.0",
+    "plugins": [
+      [
+        "@opentech-com/openpay-send",
+        {
+          "configFile": "./openpaysend-config.json"
+        }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Montserrat-Regular.ttf",
+            "./assets/fonts/Montserrat-Bold.ttf"
+          ]
+        }
+      ],
+      "react-native-edge-to-edge"
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.opentech.openpaysend.rn.example"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.opentech.openpaysend.rn.example"
     },
     "web": {
       "favicon": "./assets/favicon.png"
