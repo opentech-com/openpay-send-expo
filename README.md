@@ -74,9 +74,25 @@ function ScaDelegate({ scaPayload }: { scaPayload?: string }) {
 AppRegistry.registerComponent('OpenPaySendScaDelegate', () => ScaDelegate);
 ```
 
+## Session Token Refresh
+
+Register the listener to renew the session token:
+
 ```ts
 // index.ts (entry point)
+import OpenPaySend from '@opentech-com/openpay-send';
 import './ScaDelegate';
+
+OpenPaySend.addListener('onSessionTokenRefreshRequired', ({ currentToken }) => {
+  const newToken = // ... generate a fresh session token using currentToken if needed
+  OpenPaySend.resolveSessionTokenRefresh(OpenPaySend.SESSION_REFRESH_RESULT_SUCCESS, newToken);
+
+  // or in case of session expired:
+  OpenPaySend.resolveSessionTokenRefresh(OpenPaySend.SESSION_REFRESH_RESULT_SESSION_EXPIRED, '');
+
+  // or in case of error:
+  OpenPaySend.resolveSessionTokenRefresh(OpenPaySend.SESSION_REFRESH_RESULT_GENERIC_ERROR, '');
+});
 ```
 
 ## API
