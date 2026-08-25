@@ -19,14 +19,45 @@ npm install @opentech-com/openpay-send
 
 ## Configuration
 
-Place the SDK config file (provided by Opentech) in your project root, then add the plugin in `app.json`:
+Place the SDK config files (provided by Opentech) in your project root, then add the plugin in `app.json`:
 
 ```json
 {
   "plugins": [
-    ["@opentech-com/openpay-send", { "configFile": "./openpaysend-config.json" }]
+    ["@opentech-com/openpay-send", {
+      "androidConfigFile": "./openpaysend-android-config.json"
+    }]
   ]
 }
+```
+
+The Opentech Maven repository (`s3://openpay-plugin-store/maven/`) requires AWS
+authentication. The config plugin reads the credentials (ask Opentech to obtain
+them) from two environment variables, so they stay out of version control:
+
+- `OPENPAY_ANDROID_REPO_ACCESS_KEY`
+- `OPENPAY_ANDROID_REPO_SECRET_KEY`
+
+If either variable is missing, `expo prebuild` fails fast with a clear error.
+
+**Local builds** — create a `.env` file in your project root (the same folder as
+`app.json`) with this content:
+
+```sh
+OPENPAY_ANDROID_REPO_ACCESS_KEY=<AWS_ACCESS_KEY>
+OPENPAY_ANDROID_REPO_SECRET_KEY=<AWS_SECRET_KEY>
+```
+
+Add `.env` to your `.gitignore` so the keys are never committed. Expo loads it
+automatically for `expo prebuild` / `expo run:android`. (If your setup doesn't
+auto-load `.env`, export the two variables in your shell before building.)
+
+**EAS / CI builds** — don't use a `.env`; register the two variables as
+[EAS secrets](https://docs.expo.dev/build-reference/variables/) instead:
+
+```sh
+eas secret:create --name OPENPAY_ANDROID_REPO_ACCESS_KEY --value <AWS_ACCESS_KEY>
+eas secret:create --name OPENPAY_ANDROID_REPO_SECRET_KEY --value <AWS_SECRET_KEY>
 ```
 
 Run prebuild:

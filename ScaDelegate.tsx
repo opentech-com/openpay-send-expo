@@ -32,6 +32,8 @@ function ScaDelegate({ scaPayload }: { scaPayload?: string }) {
           </View>
 
           <View style={styles.buttons}>
+            {/* In the current integration stage, the value returned by the SCA can be any value and it is not used.
+            Please note that in the final integration you will use the received scaPayload to request an authorization from the user and verify it in your backend. Once verified, we expect to receive a signed JWT containing the scaPayload as a claim. */}
             <FilledButton
               title="SCA Authorized"
               onPress={() => resolve(OpenPaySend.SCA_RESULT_SUCCESS, `${scaPayload ?? ''}-signed`)}

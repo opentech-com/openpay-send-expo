@@ -7,7 +7,7 @@
       [
         "@opentech-com/openpay-send",
         {
-          "configFile": "./openpaysend-config.json"
+          "androidConfigFile": "./openpaysend-android-config.json"
         }
       ],
       [
@@ -19,7 +19,8 @@
           ]
         }
       ],
-      "react-native-edge-to-edge"
+      "react-native-edge-to-edge",
+      "expo-status-bar"
     ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",

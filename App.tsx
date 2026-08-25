@@ -40,6 +40,8 @@ export default function App() {
               title="Send Money"
               onPress={async () => {
                 try {
+                  // In the current integration stage, both the launch target 'payment_with_alias_resolution'
+                  // and the host_authorization_jwt are not evaluated, any value can be used.
                   await OpenPaySend.opbpLaunch('payment_with_alias_resolution', {
                     host_authorization_jwt: 'xxx-host_authorization_jwt-here-xxx',
                   });
