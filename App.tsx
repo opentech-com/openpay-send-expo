@@ -1,4 +1,4 @@
-import OpenPaySend from '@opentech-com/openpay-send';
+import OpenPaySend from '@opentech.com/openpay-send';
 import { StyleSheet, Text, View } from 'react-native';
 import { SystemBars } from 'react-native-edge-to-edge';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';

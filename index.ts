@@ -1,5 +1,5 @@
 import { registerRootComponent } from 'expo';
-import OpenPaySend from '@opentech-com/openpay-send';
+import OpenPaySend from '@opentech.com/openpay-send';
 
 import App from './App';
 import './ScaDelegate';

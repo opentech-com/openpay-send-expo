@@ -2,19 +2,18 @@
 
 ## Install
 
-1. Create a `.npmrc` in your project root:
+1. The package is private on npm. Create a `.npmrc` in your project root:
 
 ```
-@opentech-com:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+//registry.npmjs.org/:_authToken=<THE_TOKEN>
 ```
 
-The token needs the `read:packages` scope.
+replacing `<THE_TOKEN>` with the token provided by Opentech.
 
 2. Install the package:
 
 ```bash
-npm install @opentech-com/openpay-send
+npm install @opentech.com/openpay-send
 ```
 
 ## Configuration
@@ -24,7 +23,7 @@ Place the SDK config files (provided by Opentech) in your project root, then add
 ```json
 {
   "plugins": [
-    ["@opentech-com/openpay-send", {
+    ["@opentech.com/openpay-send", {
       "androidConfigFile": "./openpaysend-android-config.json"
     }]
   ]
@@ -69,7 +68,7 @@ npx expo prebuild --platform android
 ## Usage
 
 ```ts
-import OpenPaySend from '@opentech-com/openpay-send';
+import OpenPaySend from '@opentech.com/openpay-send';
 
 await OpenPaySend.opbpLaunch(target, params);
 ```
@@ -84,7 +83,7 @@ Register a component named `OpenPaySendScaDelegate` **before** `registerRootComp
 ```ts
 // ScaDelegate.tsx
 import { AppRegistry } from 'react-native';
-import OpenPaySend from '@opentech-com/openpay-send';
+import OpenPaySend from '@opentech.com/openpay-send';
 
 function ScaDelegate({ scaPayload }: { scaPayload?: string }) {
   // Present an authentication UI to the user. Use your SCA engine to sign the provided scaPayload.
@@ -111,7 +110,7 @@ Register the listener to renew the session token:
 
 ```ts
 // index.ts (entry point)
-import OpenPaySend from '@opentech-com/openpay-send';
+import OpenPaySend from '@opentech.com/openpay-send';
 import './ScaDelegate';
 
 OpenPaySend.addListener('onSessionTokenRefreshRequired', ({ currentToken }) => {

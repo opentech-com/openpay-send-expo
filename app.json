@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "plugins": [
       [
-        "@opentech-com/openpay-send",
+        "@opentech.com/openpay-send",
         {
           "androidConfigFile": "./openpaysend-android-config.json"
         }
@@ -19,18 +19,18 @@
           ]
         }
       ],
-      "react-native-edge-to-edge",
-      "expo-status-bar"
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
     ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.opentech.openpaysend.rn.example"

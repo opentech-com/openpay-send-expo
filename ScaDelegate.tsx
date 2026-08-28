@@ -1,7 +1,7 @@
 import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 import { SystemBars } from 'react-native-edge-to-edge';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import OpenPaySend from '@opentech-com/openpay-send';
+import OpenPaySend from '@opentech.com/openpay-send';
 import { FilledButton } from './components/FilledButton';
 import { InfoBanner } from './components/InfoBanner';
 import { OutlineButton } from './components/OutlineButton';
